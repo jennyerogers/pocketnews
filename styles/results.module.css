@@ -1,0 +1,127 @@
+.container {
+    padding: 0 20px;
+    padding-bottom: 80px;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 100px;
+    font-family: 'Georgia', serif;
+  }
+  
+  .titleGroup {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 2.5em;
+    margin: 0;
+    color: #333;
+  }
+  
+  .subtitle {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #666;
+  }
+  
+  .meta {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #999;
+  }
+  
+  .imgContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    margin-left: 20px;
+  }
+  
+  .imgContainer img {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 128px;
+    height: 190px;
+  }
+  
+  .imgContainer span {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 5px;
+  }
+  
+  .description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333;
+    margin: 20px 0;
+  }
+  
+  .links {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .links span {
+    font-size: 1.1em;
+    color: #333;
+    margin-right: 10px;
+  }
+  
+  .links a {
+    font-size: 1.1em;
+    color: #1a73e8;
+    text-decoration: none;
+    margin-right: 15px;
+  }
+  
+  .links a:hover {
+    text-decoration: underline;
+  }
+  
+  .controls {
+    margin: 20px 0;
+  }
+  
+  .returnLink {
+    display: block;
+    margin: 20px 0;
+    font-size: 1.1em;
+    color: #1a73e8;
+    text-decoration: none;
+  }
+  
+  .returnLink:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .titleGroup {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .imgContainer {
+      margin-left: 0;
+      margin-top: 20px;
+    }
+  
+    .description {
+      text-align: center;
+    }
+  
+    .links {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .links a {
+      margin-bottom: 10px;
+    }
+  }

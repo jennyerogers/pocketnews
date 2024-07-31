@@ -1,43 +1,41 @@
-import { withIronSessionApiRoute } from 'iron-session/next';
-import sessionOptions from '../../config/session'; 
-import db from "../../db";
+import User from "../models/user";
+import dbConnect from "../connection";
+
+export async function getFavoriteNews(userId) {
+try {
+  await dbConnect();
+  const user = await User.findById(userId).lean();
+  if (!user) return null;
+    return JSON.parse(JSON.stringify(user.favorites));
+  } catch (error) {
+    console.error("Oops! There was an error fetching articles:", error);
+    return null;
+  }
+}
+
+export async function addToFavoriteNews(userId, newsArticle) {
+  await dbConnect();
+  const user = await User.findById(userId);
+  if (!user) {
+    return null;
+  }
+
+  await User.findByIdAndUpdate(
+    userId,
+    { $addToSet: { favorites: newsArticle } }, 
+    { new: true }
+  );
+  return newsArticle;
+}
 
 
-export default withIronSessionApiRoute(
-  async function handler(req, res) {
-    if (!req.session.user) {
-      return res.status(401).end();
-    }
-
-    switch (req.method) {
-
-      case 'POST':
-        try {
-          const newsArticle = req.body;
-          const addedArticle = await db.favorites.addToFavoriteNews(req.session.user._id, newsArticle);
-          if (!addedArticle) {
-            return res.status(500).json({ error: "Failed to add article to favorites." });
-          }
-          return res.status(200).json({ article: addedArticle, message: "Article added to favorites!" });
-        } catch (error) {
-          return res.status(400).json({ error: error.message });
-        }
-
-      case 'DELETE':
-        try {
-          const { article_id } = req.body;
-          const result = await db.favorites.removeFavoriteNews(req.session.user._id, article_id);
-          if (!result) {
-            return res.status(500).json({ error: "Failed to remove article from favorites." });
-          }
-          return res.status(200).json({ articleId: article_id, message: "Article removed from favorites." });
-        } catch (error) {
-          return res.status(400).json({ error: error.message });
-        }
-
-      default:
-        return res.status(405).end(); 
-    }
-  },
-  sessionOptions
-);
+export async function removeFavoriteNews(userId, articleId) {
+  await dbConnect();
+  const user = await User.findByIdAndUpdate(
+    userId,
+    { $pull: { favorites: { article_id: articleId } } }, 
+    { new: true }
+  );
+  if (!user) return null;
+  return true;
+}
