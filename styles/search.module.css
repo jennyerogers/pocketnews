@@ -18,7 +18,7 @@
   .returnLink {
     display: block;
     margin-top: 1rem;
-    color: blue;
+    color: rgb(255, 255, 255);
     text-decoration: underline;
     cursor: pointer;
   }

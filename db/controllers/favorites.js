@@ -15,8 +15,10 @@ try {
 
 export async function addToFavoriteNews(userId, newsArticle) {
   await dbConnect();
+  console.log("Searching for user ID:", userId);
   const user = await User.findById(userId);
   if (!user) {
+    console.error("User not found:", userId);
     return null;
   }
 
@@ -27,6 +29,7 @@ export async function addToFavoriteNews(userId, newsArticle) {
   );
   return newsArticle;
 }
+
 
 
 export async function removeFavoriteNews(userId, articleId) {
