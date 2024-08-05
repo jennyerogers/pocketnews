@@ -27,6 +27,7 @@ export async function addToFavoriteNews(userId, newsArticle) {
     { $addToSet: { favorites: newsArticle } }, 
     { new: true }
   );
+  console.log ("article added")
   return newsArticle;
 }
 
@@ -40,5 +41,6 @@ export async function removeFavoriteNews(userId, articleId) {
     { new: true }
   );
   if (!user) return null;
+  console.log ("article removed")
   return true;
 }

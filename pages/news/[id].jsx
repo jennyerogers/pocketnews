@@ -20,18 +20,20 @@ export const getServerSideProps = withIronSessionSsr(
       const response = await fetch(`https://newsdata.io/api/1/news?apikey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}&id=${article_id}`);
       const newsData = await response.json();
 
-      if (newsData.status === "success" && newsData.results && newsData.results.length > 0) {
+      
+    if (newsData.status === "success" && newsData.results && newsData.results.length > 0) {
+      const article = newsData.results[0]
         props.article = {
-          article_id: article_id,
-          title: newsData.title,
-          description: newsData.description,
-          link: newsData.link,
-          source_id: newsData.source_id,
-          image_url: newsData.image_url || 'https://via.placeholder.com/128x190?text=NO IMAGE',
-          pubDate: newsData.pubDate,
-          country: newsData.country,
-          language: newsData.language,
-        };
+        article_id: article_id,
+        title: article.title || "No title available",
+        description: article.description || "No description available",
+        link: article.link || "",
+        source_id: article.source_id || "Unknown source",
+        image_url: article.image_url || 'https://via.placeholder.com/128x190?text=NO IMAGE',
+        pubDate: article.pubDate || "Unknown date",
+        country: article.country || "Unknown country",
+        language: article.language || "Unknown language",
+        }
 
         const favoriteNews = user.favorites || [];
         props.isFavoriteArticle = favoriteNews.some(a => a.article_id === article_id);
