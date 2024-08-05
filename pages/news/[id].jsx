@@ -23,14 +23,14 @@ export const getServerSideProps = withIronSessionSsr(
       if (newsData.status === "success" && newsData.results && newsData.results.length > 0) {
         props.article = {
           article_id: article_id,
-          title: newsData.results[0].title,
-          description: newsData.results[0].description,
-          link: newsData.results[0].link,
-          source_id: newsData.results[0].source_id,
-          image_url: newsData.results[0].image_url || 'https://via.placeholder.com/128x190?text=NO IMAGE',
-          pubDate: newsData.results[0].pubDate,
-          country: newsData.results[0].country,
-          language: newsData.results[0].language,
+          title: newsData.title,
+          description: newsData.description,
+          link: newsData.link,
+          source_id: newsData.source_id,
+          image_url: newsData.image_url || 'https://via.placeholder.com/128x190?text=NO IMAGE',
+          pubDate: newsData.pubDate,
+          country: newsData.country,
+          language: newsData.language,
         };
 
         const favoriteNews = user.favorites || [];

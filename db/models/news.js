@@ -10,8 +10,7 @@ const newsSchema = new Schema({
   source_id: { type: String },
   source_url: { type: String },
   image_url: { type: String },
-  pubDate: { type: Date },
-  country: { type: String },
+  pubDate: { type: String },
   language: { type: String },
   
 }, { timestamps: true });
