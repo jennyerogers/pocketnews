@@ -23,7 +23,7 @@ export const getServerSideProps = withIronSessionSsr(
 );
 
 export default function Favorites({ user, isLoggedIn, initialFavorites }) {
-  const [newsShelf, setNewsShelf] = useState(initialFavorites);
+  const [favorites, setFavorites] = useState(initialFavorites);
 
   async function handleRemove(articleId) {
     const res = await fetch('/api/favorites', {
@@ -35,7 +35,7 @@ export default function Favorites({ user, isLoggedIn, initialFavorites }) {
     });
 
     if (res.status === 200) {
-      setNewsShelf((prev) => prev.filter(article => article.article_id !== articleId));
+      setFavorites((prev) => prev.filter(article => article.article_id !== articleId));
     }
   }
 
@@ -45,9 +45,9 @@ export default function Favorites({ user, isLoggedIn, initialFavorites }) {
         <Header isLoggedIn={isLoggedIn} />
         <div className={styles.container}>
           <h1 className={styles.favTitle}>Your Favorites</h1>
-          {newsShelf && newsShelf.length > 0 ? (
+          {favorites && favorites.length > 0 ? (
             <div className={styles.favoritesList}>
-              {newsShelf.map(article => (
+              {favorites.map(article => (
                 <div key={article.article_id} className={styles.articleItem}>
                   <Link href={`/news/${article.article_id}`} className={styles.articleLink}>
                     <div className={styles.articleContent}>

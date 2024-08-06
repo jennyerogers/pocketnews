@@ -20,19 +20,18 @@ export const getServerSideProps = withIronSessionSsr(
       const response = await fetch(`https://newsdata.io/api/1/news?apikey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}&id=${article_id}`);
       const newsData = await response.json();
 
-      
-    if (newsData.status === "success" && newsData.results && newsData.results.length > 0) {
-      const article = newsData.results[0]
+      if (newsData.status === "success" && newsData.results && newsData.results.length > 0) {
+        const article = newsData.results[0]
         props.article = {
-        article_id: article_id,
-        title: article.title || "No title available",
-        description: article.description || "No description available",
-        link: article.link || "",
-        source_id: article.source_id || "Unknown source",
-        image_url: article.image_url || 'https://via.placeholder.com/128x190?text=NO IMAGE',
-        pubDate: article.pubDate || "Unknown date",
-        country: article.country || "Unknown country",
-        language: article.language || "Unknown language",
+          article_id: article_id,
+          title: article.title || "No title available",
+          description: article.description || "No description available",
+          link: article.link || "",
+          source_id: article.source_id || "Unknown source",
+          image_url: article.image_url || 'https://via.placeholder.com/128x190?text=NO IMAGE',
+          pubDate: article.pubDate || "Unknown date",
+          country: article.country || "Unknown country",
+          language: article.language || "Unknown language",
         }
 
         const favoriteNews = user.favorites || [];
@@ -74,7 +73,7 @@ const NewsArticle = (props) => {
         },
         body: JSON.stringify(currentArticle),
       });
-  
+
       if (res.status === 200) {
         setIsFavorite(true);
         router.replace(router.asPath);
@@ -86,8 +85,7 @@ const NewsArticle = (props) => {
       console.error("Error adding favorite:", error);
     }
   }
-  
-  
+
   async function removeFavoriteNews(e) {
     e.preventDefault();
     try {
@@ -98,7 +96,7 @@ const NewsArticle = (props) => {
         },
         body: JSON.stringify({ article_id: currentArticle.article_id }),
       });
-  
+
       if (res.status === 200) {
         setIsFavorite(false);
         router.replace(router.asPath);
@@ -110,7 +108,6 @@ const NewsArticle = (props) => {
       console.error("Error removing favorite:", error);
     }
   }
-  
 
   if (!currentArticle) {
     return <div>Loading...</div>;

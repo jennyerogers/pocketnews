@@ -13,6 +13,7 @@ export default function Header(props) {
       <div className={styles.links}>
         {props.isLoggedIn ? (
           <>
+            <Link href="/trending">Trending</Link>
             <Link href="/search">Search</Link>
             <Link href="/favorites">Favorites</Link>
             <a href="#" onClick={logout}>

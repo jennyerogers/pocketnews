@@ -1,0 +1,22 @@
+.main {
+    padding: 2rem;
+  }
+  
+  .newsResults {
+    margin-top: 2rem;
+  }
+  
+  .article {
+    margin-bottom: 2rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    color: #4d637c;
+    text-decoration: none;
+  }
+  
+  .title:hover {
+    text-decoration: underline;
+  }
+  
