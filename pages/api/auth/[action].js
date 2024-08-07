@@ -38,6 +38,7 @@ async function logout(req, res) {
   await req.session.destroy()
   res.status(200).end()
 }
+
 async function signup(req, res) {
   try {
     const {username, password} = req.body
@@ -48,7 +49,11 @@ async function signup(req, res) {
     req.session.user = otherFields
     await req.session.save()
     res.redirect('/')
-  } catch(err) {
-    res.status(400).json({error: err.message})
+  } catch (err) {
+    if (err.code === 11000) {
+      res.status(400).json({ error: 'Oops! Username already exists. Please choose a different username.' })
+    } else {
+      res.status(400).json({ error: err.message })
+    }
   }
 }

@@ -44,7 +44,7 @@ export default function Favorites({ user, isLoggedIn, initialFavorites }) {
       <main>
         <Header isLoggedIn={isLoggedIn} />
         <div className={styles.container}>
-          <h1 className={styles.favTitle}>Your Favorites</h1>
+          <h1 className={styles.favTitle}>Your Favorite Articles</h1>
           {favorites && favorites.length > 0 ? (
             <div className={styles.favoritesList}>
               {favorites.map(article => (

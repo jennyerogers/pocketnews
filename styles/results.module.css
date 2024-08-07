@@ -120,10 +120,6 @@
   background-color: #435d80;
 }
 
-.favoriteButton:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
 
 
 @media (max-width: 768px) {

@@ -58,7 +58,7 @@
     border: 1px solid #eaeaea;
     border-radius: 5px;
     font-size: 1rem;
-    width: 100%;
+    width: 90%;
   }
   
   .form button {
@@ -108,47 +108,85 @@
     margin-left: 0.5rem;
   }
   
-  @media (max-width: 600px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+      padding: 0 2rem;
+    }
+    
     .main {
       padding: 2rem;
     }
-  
-    .title {
-      font-size: 3rem;
-    }
-  
+    
     .description {
       font-size: 0.9rem;
+      margin: 1.5rem 0;
     }
-  
+    
+    .description code {
+      font-size: 0.9rem;
+    }
+    
     .form {
       padding: 1.5rem;
-      margin: 0.5rem;
+      margin: 1rem;
+      max-width: 80%;
     }
     
     .form input {
       font-size: 0.9rem;
     }
-  
+    
     .form button {
       padding: 0.5rem 1rem;
       font-size: 0.9rem;
     }
   }
   
+  @media (max-width: 600px) {
+    .container {
+      padding: 0 1rem;
+    }
+    
+    .main {
+      padding: 1rem;
+    }
+    
+    .description {
+      font-size: 0.8rem;
+      margin: 1rem 0;
+    }
+    
+    .description code {
+      font-size: 0.8rem;
+    }
+    
+    .form {
+      padding: 1rem;
+      margin: 0.5rem;
+      max-width: 100%;
+    }
+    
+    .form input {
+      font-size: 0.9rem;
+    }
+    
+    .form button {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+    
   @media (prefers-color-scheme: dark) {
     .form {
       background-color: #9faabb;
       border-color: #222;
     }
-  
+    
     .footer {
       border-color: #222;
     }
-  
+    
     .description code {
       background: #333;
     }
-  
   }
-  
