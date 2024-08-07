@@ -40,7 +40,7 @@ export default function Home(props) {
       <Header isLoggedIn={props.isLoggedIn} username={props?.user?.username} />
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Pocket News </h1>
+        <h1 className={styles.title}>Pocket News</h1>
         <p className={styles.slogan}>Browse and bookmark the latest headlines</p>
 
         <div className={styles.grid}>

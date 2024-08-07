@@ -26,8 +26,8 @@
 }
 
 .logo {
-  height: 70px; 
-  width: 60px;  
+  height: 60px; 
+  width: 50px;  
   transform: scale(1.5); 
   transform-origin: center; 
 }

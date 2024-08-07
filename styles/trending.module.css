@@ -33,4 +33,6 @@
   
   .subheading {
     font-family: Helvetica, sans-serif;
+    text-align: center;
+    margin-bottom: 1px;
   }
