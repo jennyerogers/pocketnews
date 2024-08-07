@@ -1,26 +1,26 @@
-html,
-body {
-  padding: 0;
+html, body {
+  height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f5ee;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+main {
+  flex: 1;
+  padding: 20px; 
 }
 
-* {
-  box-sizing: border-box;
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: beige;
+  font-family: 'Georgia', serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+@font-face {
+  font-family: 'Canterbury';
+  src: url('/Canterbury.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }

@@ -17,7 +17,7 @@ export const getServerSideProps = withIronSessionSsr(
     if (user) {
       props.user = user;
 
-      const response = await fetch(`https://newsdata.io/api/1/news?apikey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}&id=${article_id}`);
+      const response = await fetch(`https://newsdata.io/api/1/news?apikey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}&id=${article_id}`);      
       const newsData = await response.json();
 
       if (newsData.status === "success" && newsData.results && newsData.results.length > 0) {
@@ -128,7 +128,6 @@ const NewsArticle = (props) => {
       <Head>
         <title>{title} - Pocket News</title>
         <meta name="description" content="Viewing a news article on Pocket News" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header isLoggedIn={isLoggedIn} />
       <main className={styles.container}>

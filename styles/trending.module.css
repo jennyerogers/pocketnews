@@ -1,9 +1,14 @@
 .main {
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: left; 
   }
   
   .newsResults {
     margin-top: 2rem;
+    width: 100%; 
   }
   
   .article {
@@ -12,11 +17,20 @@
   
   .title {
     font-size: 1.5rem;
-    color: #4d637c;
-    text-decoration: none;
+    color: #000000;
+    text-decoration: underline;
+    text-decoration-color: black; 
+  }
+
+  .trendTitle {
+    font-size: 2.3rem;
   }
   
   .title:hover {
     text-decoration: underline;
+    text-decoration-color: black; 
   }
   
+  .subheading {
+    font-family: Helvetica, sans-serif;
+  }

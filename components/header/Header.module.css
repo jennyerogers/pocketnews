@@ -4,17 +4,37 @@
   justify-content: space-between;
   gap: 12px;
   align-items: center;
+  color: #000000;
+  font-family: 'Helvectica', sans-serif;
+  font-size: 1rem;
 }
 
 .header p {
   margin: 0; 
   padding: 0; 
 }
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
 
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo {
+  height: 70px; 
+  width: 60px;  
+  transform: scale(1.5); 
+  transform-origin: center; 
+}
 .links a {
   margin: 0 10px;
   text-decoration: none;
-  color: #ffffff;
+  color: #000000;
 }
 
 .links a:hover {

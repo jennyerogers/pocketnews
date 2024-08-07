@@ -18,7 +18,7 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    background-color: #f6f5f3;
+    background-color: #e6e2dd;
     font-family: 'Georgia', serif;
     font-size: 0.8rem;
   }
@@ -35,8 +35,8 @@
   .articleItem button {
     padding: 8px 16px;
     font-size: 0.9rem;
-    color: white;
-    background-color: #184D2C;
+    background-color: #40526b;
+    color: #fafafa;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -55,8 +55,8 @@
   }
   
   .articleItem button:hover {
-    background-color: #E4EFD9;
-    color: black;
+    background-color: #9faabb;
+    color: #1d2732;
   }
   
   /* media queries */

@@ -38,7 +38,9 @@ export default function Trending(props) {
         console.log(newsData)
 
         if (newsData.status === "success") {
-          setNewsInfo(newsData.results)
+            const filteredArticles = newsData.results.filter(article => article.source_id !== "nwitimes"); //filter out anything from nwitimes because it displays property listings
+            const singularArticles = Array.from(new Map(filteredArticles.map(article => [article.title, article])).values());            
+            setNewsInfo(singularArticles); //makes sure that there aren't duplicate/repeat articles
         } else {
           setNewsInfo([])
         }
@@ -57,13 +59,13 @@ export default function Trending(props) {
       <main>
         <Header isLoggedIn={props.isLoggedIn} />
         <div className={styles.main}>
-          <h1>Trending News</h1>
-          <p>Stay updated with the latest headlines.</p>
+        <h1 className={styles.trendTitle}>Trending News </h1>
+          <p className={styles.subheading}>Stay updated with the latest headlines.</p>
           <br />
           <div>
             {loading && <p>Loading...</p>}
             {error && <p>{error}</p>}
-            {!loading && !error && newsInfo.length === 0 && <p>No trending news available.</p>}
+            {!loading && !error && newsInfo.length === 0 && <p>Oops! No trending news available. Please try again later.</p>}
             <br />
             <br />
             <div className={styles.newsResults}>

@@ -62,18 +62,17 @@ export default function Search(props) {
           <p>Explore endless news articles.</p>
           <br />
           <div>
-            <form className={styles.searchBarDiv} onSubmit={handleSubmit}>
-              <input
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <input
                 placeholder="Search by keyword"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 type="text"
                 name="news-search"
+                className={styles.input}
               />
-              <br />
-              <br />
-              <button type="submit">Search</button>
-            </form>
+            <button type="submit" className={styles.button}>Search</button>
+          </form>
           </div>
           <div>
             {!searchPerformed && <br />}
