@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import styles from "../styles/signup.module.css"; 
 import { useRouter } from "next/router";
-import Header from "../components/Header";
+import Header from "../components/header";
 import Footer from "../components/Footer";
 
 export default function Signup(props) {

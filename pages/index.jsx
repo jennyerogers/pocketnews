@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { withIronSessionSsr } from "iron-session/next";
 import sessionOptions from "../config/session";
 import styles from "../styles/Home.module.css";
-import Header from "../components/Header";
+import Header from "../components/header";
 import Footer from "../components/Footer";
 import useLogout from "../hooks/useLogout";
 

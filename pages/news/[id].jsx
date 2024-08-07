@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { withIronSessionSsr } from 'iron-session/next';
 import sessionOptions from '../../config/session';
-import Header from '../../components/Header';
+import Header from '../components/Header';
 import Footer from '../../components/Footer';
 import styles from '../../styles/results.module.css';
 
